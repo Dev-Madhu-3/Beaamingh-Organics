@@ -41,6 +41,7 @@ const Carousel = () => {
       fadeEffect={{ crossFade: true }}
       autoplay={{ delay: 3000, disableOnInteraction: false }}
       pagination={{ clickable: true, dynamicBullets: true }}
+      // direction={'vertical'}
       loop={true}
       speed={800}
       className="mySwiper h-96 md:h-[35rem]"

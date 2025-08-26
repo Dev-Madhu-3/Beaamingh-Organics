@@ -89,7 +89,7 @@ const Footer = () => {
                                         <AnimatedSection key={social.name} animation="scale" delay={400 + index * 100}>
                                             <a
                                                 href={social.url}
-                                                className={`group relative ${social.color} ${social.hoverColor} w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg overflow-hidden`}
+                                                className={`group relative ${social.color} ${social.hoverColor} w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg overflow-hidden`}
                                                 aria-label={social.name}
                                             >
                                                 {/* Animated background effect */}
