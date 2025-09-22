@@ -53,7 +53,7 @@ const Navbar = () => {
                 {['Home', 'Shop', 'Categories', 'Deals', 'About'].map((item, index) => (
                   <li key={item} className="shrink-0">
                     <AnimatedSection animation="slide-right" delay={index * 100}>
-                      <a href="#" className="flex text-sm font-medium text-gray-900 hover:text-green-600 dark:text-white dark:hover:text-green-400">
+                      <a href={`/${item}`} className="flex text-sm font-medium text-gray-900 hover:text-green-600 dark:text-white dark:hover:text-green-400">
                         {item}
                       </a>
                     </AnimatedSection>
@@ -64,7 +64,7 @@ const Navbar = () => {
 
             <div className="flex items-center lg:space-x-2">
               {/* Search */}
-              <div className="hidden md:block">
+              {/* <div className="hidden md:block">
                 <div className="relative">
                   <input
                     type="text"
@@ -77,7 +77,7 @@ const Navbar = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Cart */}
               <div
@@ -214,16 +214,43 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
+                
                 <ul className="text-gray-900 dark:text-white text-sm font-medium space-y-3">
-                  {['Home', 'Shop', 'Categories', 'Deals', 'About', 'Blog', 'Contact'].map((item, index) => (
-                    <li key={item}>
+                    <li>
                       <AnimatedSection animation="slide-right" delay={index * 50}>
                         <a href="#" className="hover:text-green-600 dark:hover:text-green-400">
-                          {item}
+                          Home
                         </a>
                       </AnimatedSection>
                     </li>
-                  ))}
+                    <li>
+                      <AnimatedSection animation="slide-right" delay={index * 50}>
+                        <a href="#" className="hover:text-green-600 dark:hover:text-green-400">
+                          Shop
+                        </a>
+                      </AnimatedSection>
+                    </li>
+                    <li>
+                      <AnimatedSection animation="slide-right" delay={index * 50}>
+                        <a href="#" className="hover:text-green-600 dark:hover:text-green-400">
+                          Categories
+                        </a>
+                      </AnimatedSection>
+                    </li>
+                    <li>
+                      <AnimatedSection animation="slide-right" delay={index * 50}>
+                        <a href="#" className="hover:text-green-600 dark:hover:text-green-400">
+                          About
+                        </a>
+                      </AnimatedSection>
+                    </li>
+                    <li>
+                      <AnimatedSection animation="slide-right" delay={index * 50}>
+                        <a href="#" className="hover:text-green-600 dark:hover:text-green-400">
+                          Contact
+                        </a>
+                      </AnimatedSection>
+                    </li>
                 </ul>
               </div>
             </AnimatedSection>
