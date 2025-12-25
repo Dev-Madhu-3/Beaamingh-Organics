@@ -1,27 +1,41 @@
 // ShopByCategory.js
-import AnimatedSection from './AnimatedSection';
-import { productCategories } from '../assets/items';
-import { Link } from 'react-router-dom';
-import { useAppContext } from '../CustomHooks/appContext';
+import AnimatedSection from "../components/AnimatedSection";
+import { productCategories } from "../assets/staticData";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../CustomHooks/appContext";
+import { whatsappNumber } from "../assets/config";
 
 const ShopByCategory = () => {
-  const { setCategorySelected } = useAppContext()
+  const { setCategorySelected } = useAppContext();
 
   const handleShopNow = (category) => {
     setCategorySelected(category);
-  }
+  };
+
+  const onProductRequest = () => {
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hey, I would like to request a product")}`,
+      "_blank"
+    );
+  };
 
   return (
     <AnimatedSection animation="fade-up">
-      <section className="py-16 bg-gradient-to-br from-green-50 to-emerald-50">
+      <section
+        id="shopByCategories"
+        className="py-16 bg-gradient-to-br from-green-50 to-emerald-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AnimatedSection animation="fade-up" delay={200}>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Shop by Category</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Shop by Category
+              </h2>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={400}>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our diverse range of organic and natural products across multiple categories
+                Explore our diverse range of organic and natural products across
+                multiple categories
               </p>
             </AnimatedSection>
           </div>
@@ -50,12 +64,17 @@ const ShopByCategory = () => {
 
                     {/* Content overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
-                      <p className="text-white/80 mb-4">{category.description}</p>
+                      <h3 className="text-2xl font-bold mb-2">
+                        {category.name}
+                      </h3>
+                      <p className="text-white/80 mb-4">
+                        {category.description}
+                      </p>
                       <Link to="/products">
                         <button
                           onClick={() => handleShopNow(category.value)}
-                          className="bg-white text-green-700 hover:bg-green-50 font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 group-hover:shadow-lg">
+                          className="bg-white text-green-700 hover:bg-green-50 font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 group-hover:shadow-lg"
+                        >
                           Shop Now
                         </button>
                       </Link>
@@ -74,9 +93,17 @@ const ShopByCategory = () => {
           <AnimatedSection animation="fade-up" delay={1200}>
             <div className="mt-16 text-center">
               <div className="inline-block bg-white rounded-2xl shadow-xl p-8 max-w-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Can't find what you're looking for?</h3>
-                <p className="text-gray-600 mb-6">We're constantly expanding our product range. Contact us for special requests.</p>
-                <button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Can't find what you're looking for?
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  We're constantly expanding our product range. Contact us for
+                  special requests.
+                </p>
+                <button
+                  onClick={onProductRequest}
+                  className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
                   Request a Product
                 </button>
               </div>

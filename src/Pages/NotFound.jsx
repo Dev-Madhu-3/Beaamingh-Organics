@@ -130,7 +130,7 @@ const NotFoundPage = () => {
                 </div>
               ))}
             </div>
-            <div className="MMTT">wertyuiopasdfghjkl;zxcvbnm</div>
+            <div className="MMTT">beaamingh organics</div>
           </AnimatedSection>
         </div>
       </div>

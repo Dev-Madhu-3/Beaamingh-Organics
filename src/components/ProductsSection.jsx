@@ -1,7 +1,7 @@
 // ProductsSection.js
 import AnimatedSection from './AnimatedSection';
 import ProductCard from './ProductCard';
-import { productsData } from '../assets/items';
+import { productsData } from '../assets/staticData';
 import { Link } from 'react-router-dom';
 
 const products = productsData.sort(() => 0.5 - Math.random()).slice(0, 9);

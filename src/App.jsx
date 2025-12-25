@@ -7,6 +7,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Footer from "./components/Footer";
 import NotFound from "./Pages/NotFound";
 import { AppProvider } from "./components/Context";
+import ProductDetailPage from "./Pages/ProductDetailPage"
+import ShopByCategory from "./Pages/ShopByCategory";
+import AboutPage from "./Pages/AboutPage";
 
 
 const ComponentWithFooterAndNavbar = ({ component }) => (
@@ -24,8 +27,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<ComponentWithFooterAndNavbar component={<Home />} />} />
           <Route path="/products" element={<ComponentWithFooterAndNavbar component={<Products />} />} />
-          <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/shop" element={<Navigate to="/products" />} />
+          <Route path="/product/:id" element={<ComponentWithFooterAndNavbar component={<ProductDetailPage />} />} />
+          <Route path="/categories" element={<ComponentWithFooterAndNavbar component={<ShopByCategory />} />} />
+          <Route path="/about" element={<ComponentWithFooterAndNavbar component={<AboutPage />} />} />
           <Route path="/not-found" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>

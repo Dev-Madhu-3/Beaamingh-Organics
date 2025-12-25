@@ -1,10 +1,10 @@
-import Carousel from '../components/Carousel';
-import Intro from '../components/Intro';
-import ProductsSection from '../components/ProductsSection';
-import Testimonials from '../components/Testimonials';
-import Newsletter from '../components/Newsletter';
-import Footer from '../components/Footer';
-import ShopByCategory from '../components/ShopByCategory';
+import Carousel from "../components/Carousel";
+import Intro from "../components/Intro";
+import ProductsSection from "../components/ProductsSection";
+import Testimonials from "../components/Testimonials";
+import Newsletter from "../components/Newsletter";
+// import Footer from "../components/Footer";
+// import ShopByCategory from "./ShopByCategory";
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <Carousel />
       <Intro />
       <ProductsSection />
-      <ShopByCategory />
+      {/* <ShopByCategory /> */}
       <Testimonials />
       <Newsletter />
     </main>

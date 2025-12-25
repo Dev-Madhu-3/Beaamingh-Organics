@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import ProductCard from '../components/ProductCard';
-import { productsData } from '../assets/items';
+import { productsData } from '../assets/staticData';
 import { useAppContext } from '../CustomHooks/appContext';
 
 const ProductsPage = () => {
@@ -11,7 +11,7 @@ const ProductsPage = () => {
   const [products, setProducts] = useState(productsData);
   const [filteredProducts, setFilteredProducts] = useState(productsData);
   const [filters, setFilters] = useState({
-    categories: [categorySelected],
+    categories: categorySelected,
     priceRange: [0, 3000],
     rating: 0,
     inStock: false,
@@ -35,8 +35,9 @@ const ProductsPage = () => {
     if (searchQuery) {
       result = result.filter(product =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description?.toLowerCase().includes(searchQuery.toLowerCase())
+        product.category.toLowerCase().includes(searchQuery.toLowerCase())
+        // ||
+        // product.description?.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
@@ -99,13 +100,13 @@ const ProductsPage = () => {
   };
 
   // Handle price range change
-  const handlePriceRangeChange = (index, value) => {
-    setFilters(prev => {
-      const priceRange = [...prev.priceRange];
-      priceRange[index] = value;
-      return { ...prev, priceRange };
-    });
-  };
+  // const handlePriceRangeChange = (index, value) => {
+  //   setFilters(prev => {
+  //     const priceRange = [...prev.priceRange];
+  //     priceRange[index] = value;
+  //     return { ...prev, priceRange };
+  //   });
+  // };
 
   // Handle rating filter change
   const handleRatingChange = (rating) => {
@@ -231,7 +232,7 @@ const ProductsPage = () => {
                 </div>
 
                 {/* Price Range */}
-                <div className="mb-8">
+                {/* <div className="mb-8">
                   <h3 className="font-medium text-gray-900 mb-3">Price Range</h3>
                   <div className="space-y-4">
                     <div>
@@ -263,10 +264,10 @@ const ProductsPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Rating */}
-                <div className="mb-8">
+                {/* <div className="mb-8">
                   <h3 className="font-medium text-gray-900 mb-3">Customer Rating</h3>
                   <div className="space-y-2">
                     {[4, 3, 2].map(rating => (
@@ -291,7 +292,7 @@ const ProductsPage = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 {/* Additional Filters */}
                 <div className="space-y-3">
@@ -307,7 +308,7 @@ const ProductsPage = () => {
                       In Stock Only
                     </label>
                   </div>
-                  <div className="flex items-center">
+                  {/* <div className="flex items-center">
                     <input
                       type="checkbox"
                       id="new"
@@ -318,7 +319,7 @@ const ProductsPage = () => {
                     <label htmlFor="new" className="ml-2 text-gray-700">
                       New Products
                     </label>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </AnimatedSection>
@@ -327,13 +328,13 @@ const ProductsPage = () => {
           {/* Products Grid */}
           <div className="flex-1">
             {/* Results count and active filters */}
-            <div className="flex flex-wrap items-center justify-between mb-6">
-              <p className="text-gray-700">
+            {/* <div className="flex flex-wrap items-center justify-between mb-6"> */}
+              {/* <p className="text-gray-700">
                 Showing <span className="font-medium">{filteredProducts.length}</span> of <span className="font-medium">{products.length}</span> products
-              </p>
+              </p> */}
 
               {/* Active filters */}
-              <div className="flex flex-wrap gap-2 mt-2 md:mt-0">
+              {/* <div className="flex flex-wrap gap-2 mt-2 md:mt-0">
                 {filters.categories.map(category => (
                   <span key={category} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                     {category}
@@ -394,8 +395,8 @@ const ProductsPage = () => {
                     </button>
                   </span>
                 )}
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
