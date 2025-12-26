@@ -14,7 +14,9 @@ const ShopByCategory = () => {
 
   const onProductRequest = () => {
     window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hey, I would like to request a product")}`,
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        "Hey, I would like to request a product"
+      )}`,
       "_blank"
     );
   };
@@ -47,44 +49,49 @@ const ShopByCategory = () => {
                 animation="scale"
                 delay={600 + index * 150}
               >
-                <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                  {/* Image with overlay */}
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <Link
+                  onClick={() => handleShopNow(category.value)}
+                  to="/products"
+                >
+                  <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    {/* Image with overlay */}
+                    <div className="relative h-64 overflow-hidden">
+                      <img
+                        src={category.image}
+                        alt={category.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                    {/* Category badge */}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-md">
-                      <span className="text-2xl">{category.icon}</span>
-                    </div>
+                      {/* Category badge */}
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-md">
+                        <span className="text-2xl">{category.icon}</span>
+                      </div>
 
-                    {/* Content overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">
-                        {category.name}
-                      </h3>
-                      <p className="text-white/80 mb-4">
-                        {category.description}
-                      </p>
-                      <Link to="/products">
+                      {/* Content overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 className="text-2xl font-bold mb-2">
+                          {category.name}
+                        </h3>
+                        <p className="text-white/80 mb-4">
+                          {category.description}
+                        </p>
+                        {/* <Link to="/products">
                         <button
                           onClick={() => handleShopNow(category.value)}
                           className="bg-white text-green-700 hover:bg-green-50 font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 group-hover:shadow-lg"
                         >
                           Shop Now
                         </button>
-                      </Link>
+                      </Link> */}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Decorative elements */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500"></div>
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500"></div>
-                </div>
+                    {/* Decorative elements */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500"></div>
+                  </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>

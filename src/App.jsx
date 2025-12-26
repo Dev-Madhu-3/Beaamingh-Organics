@@ -1,41 +1,71 @@
-import AuthPage from "./components/AuthPage";
-import Home from "./Pages/Home"
-import Navbar from "./components/Navbar"
-import Sample from "./components/Sample"
-import Products from "./Pages/Products";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Footer from "./components/Footer";
-import NotFound from "./Pages/NotFound";
-import { AppProvider } from "./components/Context";
-import ProductDetailPage from "./Pages/ProductDetailPage"
+
+import Home from "./Pages/Home";
+import Products from "./Pages/Products";
 import ShopByCategory from "./Pages/ShopByCategory";
 import AboutPage from "./Pages/AboutPage";
+import NotFound from "./Pages/NotFound";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { AppProvider } from "./components/Context";
 
-const ComponentWithFooterAndNavbar = ({ component }) => (
-  <>
-    <Navbar />
-    {component}
-    <Footer />
-  </>
-);
+/* Layout wrapper */
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  );
+};
 
 const App = () => {
   return (
-    <>
-      <AppProvider>
-        <Routes>
-          <Route path="/" element={<ComponentWithFooterAndNavbar component={<Home />} />} />
-          <Route path="/products" element={<ComponentWithFooterAndNavbar component={<Products />} />} />
-          <Route path="/product/:id" element={<ComponentWithFooterAndNavbar component={<ProductDetailPage />} />} />
-          <Route path="/categories" element={<ComponentWithFooterAndNavbar component={<ShopByCategory />} />} />
-          <Route path="/about" element={<ComponentWithFooterAndNavbar component={<AboutPage />} />} />
-          <Route path="/not-found" element={<NotFound />} />
-          <Route path="*" element={<Navigate to="/not-found" />} />
-        </Routes>
-      </AppProvider>
-    </>
-    // <AuthPage/>
+    <AppProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/products"
+          element={
+            <Layout>
+              <Products />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/categories"
+          element={
+            <Layout>
+              <ShopByCategory />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/about"
+          element={
+            <Layout>
+              <AboutPage />
+            </Layout>
+          }
+        />
+
+        {/* Not Found */}
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/not-found" replace />} />
+      </Routes>
+    </AppProvider>
   );
 };
 
