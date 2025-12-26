@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import AnimatedSection from "../components/AnimatedSection";
+import { companyName, mobileNumber } from "../assets/config";
 
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState("mission");
@@ -27,7 +28,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="relative z-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About Beaming Organic
+              About {companyName} Organic
             </h1>
             <p className="text-xl md:text-2xl text-green-100 max-w-3xl">
               Your trusted source for authentic Ayurvedic remedies, herbal
@@ -41,7 +42,7 @@ const AboutPage = () => {
                 Explore Our Products
               </a>
               <a
-                href="/contact"
+                href={`tel:${mobileNumber}`}
                 className="px-6 py-3 border-2 border-white text-white rounded-lg font-medium text-center hover:bg-green-800 transition-colors"
               >
                 Contact Us
@@ -63,7 +64,7 @@ const AboutPage = () => {
                 Our Story
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Founded in 2005, Beaming Organic began as a small family
+                Founded in 2005, Beaamingh Organic began as a small family
                 business with a simple mission: to provide authentic,
                 high-quality Ayurvedic and herbal products that honor
                 traditional wisdom while embracing modern quality standards.

@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Link } from "react-router-dom";
-import { whatsappNumber } from "../assets/config";
+import { logoUrl, whatsappNumber } from "../assets/config";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const mobileMenuRef = useRef(null);
+  // const mobileMenuRef = useRef(null);
 
   // useEffect(() => {
   //   const handleClickOutside = (event) => {
@@ -44,8 +44,8 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <img
-                className="block h-10 w-auto"
-                src="https://res.cloudinary.com/dpk6qsn0e/image/upload/v1755796960/Screenshot_2025-08-21_220940-removebg-preview_wfwpmj.png"
+                className="block h-16 w-auto"
+                src={logoUrl}
                 alt="Beaming Organic Logo"
               />
             </Link>

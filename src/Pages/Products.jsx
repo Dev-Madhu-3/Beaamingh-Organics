@@ -295,7 +295,7 @@ const ProductsPage = () => {
                 </div> */}
 
                 {/* Additional Filters */}
-                <div className="space-y-3">
+                {/* <div className="space-y-3">
                   <div className="flex items-center">
                     <input
                       type="checkbox"
@@ -308,7 +308,7 @@ const ProductsPage = () => {
                       In Stock Only
                     </label>
                   </div>
-                  {/* <div className="flex items-center">
+                  <div className="flex items-center">
                     <input
                       type="checkbox"
                       id="new"
@@ -319,8 +319,8 @@ const ProductsPage = () => {
                     <label htmlFor="new" className="ml-2 text-gray-700">
                       New Products
                     </label>
-                  </div> */}
-                </div>
+                  </div>
+                </div> */}
               </div>
             </AnimatedSection>
           </div>
@@ -328,10 +328,10 @@ const ProductsPage = () => {
           {/* Products Grid */}
           <div className="flex-1">
             {/* Results count and active filters */}
-            {/* <div className="flex flex-wrap items-center justify-between mb-6"> */}
-              {/* <p className="text-gray-700">
+            <div className="flex flex-wrap items-center justify-between mb-6">
+              <p className="text-gray-700">
                 Showing <span className="font-medium">{filteredProducts.length}</span> of <span className="font-medium">{products.length}</span> products
-              </p> */}
+              </p>
 
               {/* Active filters */}
               {/* <div className="flex flex-wrap gap-2 mt-2 md:mt-0">
@@ -396,7 +396,7 @@ const ProductsPage = () => {
                   </span>
                 )}
               </div> */}
-            {/* </div> */}
+            </div>
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
